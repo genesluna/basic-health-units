@@ -30,7 +30,15 @@ h1 {
   text-align: center;
 }
 
-p {
+.disclaimer {
+  width: 95%;
+  font-size: 0.85rem;
+  line-height: 1.1;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.footer {
   font-size: 0.85rem;
   line-height: 1.1;
   text-align: center;
