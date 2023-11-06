@@ -33,6 +33,7 @@ function App() {
   return (
     <Fragment>
       <h1>💉 Pontos de vacinação em Alagoas</h1>
+      <p className="disclaimer">* As coordenadas de latitude e longitude são aproximadas e em alguns casos correspondem à localização da sede do município.</p>
       <MapContainer center={[-9.677819890864154, -36.653777684088666]} zoom={9}>
 
         <TileLayer
@@ -57,7 +58,7 @@ function App() {
 
         </MarkerClusterGroup>
       </MapContainer>
-      <p>© 2023 Genes Luna. All rights reserved</p>
+      <p className="footer">© 2023 Genes Luna. All rights reserved</p>
     </Fragment>
   );
 }
