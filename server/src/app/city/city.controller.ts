@@ -3,7 +3,7 @@ import { CityService } from './city.service';
 import { ApiTags } from '@nestjs/swagger';
 
 @ApiTags('cities')
-@Controller('api/v1/cities')
+@Controller('v1/cities')
 export class CityController {
   constructor(private readonly cityService: CityService) {}
 

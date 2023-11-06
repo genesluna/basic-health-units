@@ -3,7 +3,7 @@ import { BhuService } from './bhu.service';
 import { ApiTags } from '@nestjs/swagger';
 
 @ApiTags('basic health units')
-@Controller('api/v1/bhus')
+@Controller('v1/bhus')
 export class BhuController {
   constructor(private readonly bhuService: BhuService) {}
 
