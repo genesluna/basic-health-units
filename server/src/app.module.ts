@@ -3,6 +3,8 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { CityModule } from './app/city/city.module';
 import { BhuModule } from './app/bhu/bhu.module';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
 
 @Module({
   imports: [
@@ -16,6 +18,9 @@ import { BhuModule } from './app/bhu/bhu.module';
       password: process.env.DB_PASSWORD,
       synchronize: true,
       entities: [__dirname + '/**/*.entity{.js,.ts}'],
+    }),
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '../..', 'client', 'dist'),
     }),
     CityModule,
     BhuModule,
