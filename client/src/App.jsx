@@ -25,7 +25,7 @@ const createClusterCustomIcon = function (cluster) {
 };
 
 function App() {
-  const { data, error, isLoading } = useSWR(`/api/v1/bhus`, fetcher)
+  const { data, error, isLoading } = useSWR('/api/v1/bhus', fetcher)
 
   if (error) return <div>falhou ao carregar</div>
   if (isLoading) return <Dna visible={true} height="80" width="80" ariaLabel="dna-loading" wrapperStyle={{}} wrapperClass="dna-wrapper"/>
@@ -45,9 +45,13 @@ function App() {
           iconCreateFunction={createClusterCustomIcon}
         >
 
-          {data?.map(({ id, name, latitude, longitude }) => (
+          {data?.map(({ id, name, address, district, latitude, longitude }) => (
             <Marker position={[latitude, longitude]} icon={customIcon} key={id}>
-              <Popup>{name}</Popup>
+              <Popup>
+                <span><strong>Unidade:</strong> {name}</span> <br/>
+                <span><strong>Endereço:</strong> {address}</span> <br/>
+                <span><strong>Bairro:</strong> {district}</span>
+               </Popup>
             </Marker>
           ))}
 
