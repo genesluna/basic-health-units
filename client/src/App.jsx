@@ -1,5 +1,6 @@
 import "leaflet/dist/leaflet.css";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { Dna } from  'react-loader-spinner'
 import MarkerClusterGroup from "react-leaflet-cluster";
 import useSWR from 'swr'
 
@@ -11,7 +12,7 @@ const fetcher = (...args) => fetch(...args).then(res => res.json())
 // create custom icon
 const customIcon = new Icon({
   iconUrl: new URL('./assets/marker-icon.png', import.meta.url).href,
-  iconSize: [38, 38] // size of the icon
+  iconSize: [38, 38]
 });
 
 // custom cluster icon
@@ -27,7 +28,7 @@ function App() {
   const { data, error, isLoading } = useSWR(`/api/v1/bhus`, fetcher)
 
   if (error) return <div>falhou ao carregar</div>
-  if (isLoading) return <div>carregando...</div>
+  if (isLoading) return <Dna visible={true} height="80" width="80" ariaLabel="dna-loading" wrapperStyle={{}} wrapperClass="dna-wrapper"/>
 
   return (
     <Fragment>
