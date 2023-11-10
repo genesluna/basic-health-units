@@ -1,0 +1,93 @@
+{
+	"info": {
+		"_postman_id": "ca7d3da4-8386-4134-8bc4-724134de2395",
+		"name": "Basic health units API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "368699"
+	},
+	"item": [
+		{
+			"name": "Basic Health Units",
+			"item": [
+				{
+					"name": "Get all basic health units",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://vacina-al.genesluna.dev/api/v1/bhus",
+							"protocol": "https",
+							"host": [
+								"vacina-al",
+								"genesluna",
+								"dev"
+							],
+							"path": [
+								"api",
+								"v1",
+								"bhus"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cities",
+			"item": [
+				{
+					"name": "Get all cities",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://vacina-al.genesluna.dev/api/v1/cities",
+							"protocol": "https",
+							"host": [
+								"vacina-al",
+								"genesluna",
+								"dev"
+							],
+							"path": [
+								"api",
+								"v1",
+								"cities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get city with basic health units",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://vacina-al.genesluna.dev/api/v1/cities/:city_id",
+							"protocol": "https",
+							"host": [
+								"vacina-al",
+								"genesluna",
+								"dev"
+							],
+							"path": [
+								"api",
+								"v1",
+								"cities",
+								":city_id"
+							],
+							"variable": [
+								{
+									"key": "city_id",
+									"value": "270010"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
