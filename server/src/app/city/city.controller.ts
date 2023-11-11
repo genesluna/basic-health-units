@@ -1,19 +1,24 @@
-import { Controller, Get, Param, ParseIntPipe } from '@nestjs/common';
+import { Controller, Get, HttpException, HttpStatus, Param, ParseIntPipe } from '@nestjs/common';
 import { CityService } from './city.service';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 
-@ApiTags('cities')
+@ApiTags('Cities')
 @Controller('v1/cities')
 export class CityController {
   constructor(private readonly cityService: CityService) {}
 
   @Get()
+  @ApiOperation({ summary: 'Get cities list' })
   async getCities() {
     return await this.cityService.getCities();
   }
 
   @Get(':id')
+  @ApiOperation({ summary: 'Get city with basic health units' })
+  @ApiResponse({ status: 404, description: 'Not found' })
   async getCityWithBhus(@Param('id', ParseIntPipe) id: number) {
-    return await this.cityService.getCityWithBhus(id);
+    const cityWithBhus = await this.cityService.getCityWithBhus(id);
+    if (!cityWithBhus) throw new HttpException('City not found', HttpStatus.NOT_FOUND);
+    return cityWithBhus;
   }
 }
